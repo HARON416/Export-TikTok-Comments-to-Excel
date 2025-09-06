@@ -1,6 +1,6 @@
-# 📱 TikTok Comment Scraper (Free Limited Version)
+# 📱 TikTok Comment Scraper
 
-> **Extract main comments from TikTok videos with ease** 🚀
+> **Extract unlimited main comments from TikTok videos with ease** 🚀
 
 [![Go Version](https://img.shields.io/badge/Go-1.21+-blue.svg)](https://golang.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -10,9 +10,7 @@
 
 ## ✨ Features
 
-### 🆓 **Free Limited Version**
-
-- ✅ **Extract up to 500 main comments** per video
+- ✅ **Unlimited main comments** - no limits on main comments!
 - ✅ **Export to Excel** with detailed comment data
 - ✅ **Real-time token rotation** for reliable scraping
 - ✅ **Multi-language support** (comments in any language)
@@ -37,7 +35,7 @@
 
 - 🚀 **Quick Start**: Download executable (recommended)
 - 🔧 **Developer**: Build from source code
-- 💎 **Need More?**: Contact for premium features
+- 💎 **Need Replies?**: Upgrade to premium for nested comment support
 
 ---
 
@@ -45,18 +43,41 @@
 
 ### Option 1: Download Executable (Recommended)
 
-Download the pre-compiled executable for your operating system:
+Download the executable for your operating system:
 
-- **Windows**: [Download .exe](https://www.mediafire.com/file/j7pgp8bwqk1ht12/Export-TikTok-Comments-to-Excel.exe/file)
-- **Mac**: [Download for Mac](https://www.mediafire.com/file/zupgbc29fdc2p0u/Export-TikTok-Comments-to-Excel-Mac/file)
-- **Linux**: [Download for Linux](https://www.mediafire.com/file/zrxlp4vge1yq1zk/Export-TikTok-Comments-to-Excel-Linux/file)
+| Platform    | Architecture          | File Name                                  |
+| ----------- | --------------------- | ------------------------------------------ |
+| **Windows** | x64 (amd64)           | `tiktok-comment-scraper-windows-amd64.exe` |
+| **Linux**   | x64 (amd64)           | `tiktok-comment-scraper-linux-amd64`       |
+| **macOS**   | Intel (amd64)         | `tiktok-comment-scraper-macos-amd64`       |
+| **macOS**   | Apple Silicon (arm64) | `tiktok-comment-scraper-macos-arm64`       |
 
-**Usage with executable:**
+#### 📥 Installation Instructions
 
-1. Download the file for your OS
-2. Extract/run the executable
-3. Follow the prompts to enter TikTok URL
-4. Get your Excel file with comments!
+**Windows:**
+
+1. Download `tiktok-comment-scraper-windows-amd64.exe`
+2. Double-click to run (no installation required)
+
+**Linux:**
+
+1. Download `tiktok-comment-scraper-linux-amd64`
+2. Make executable: `chmod +x tiktok-comment-scraper-linux-amd64`
+3. Run: `./tiktok-comment-scraper-linux-amd64`
+
+**macOS (Intel):**
+
+1. Download `tiktok-comment-scraper-macos-amd64`
+2. Make executable: `chmod +x tiktok-comment-scraper-macos-amd64`
+3. Run: `./tiktok-comment-scraper-macos-amd64`
+
+**macOS (Apple Silicon):**
+
+1. Download `tiktok-comment-scraper-macos-arm64`
+2. Make executable: `chmod +x tiktok-comment-scraper-macos-arm64`
+3. Run: `./tiktok-comment-scraper-macos-arm64`
+
+**💡 Note**: Executables are available in the `builds/` directory after running `./build.sh`
 
 ### 🔒 Security Verified
 
@@ -70,30 +91,28 @@ All executables have been scanned and verified as safe:
 
 ### Option 2: Build from Source
 
-#### Prerequisites
+```bash
+# Navigate to the TikTok scraper directory
+cd TIKTOK
 
-- Go 1.21 or higher
-- Internet connection
+# Install dependencies
+go mod tidy
 
-#### Installation
+# Build the executable
+go build -o tiktok-comment-scraper main.go
 
-1. **Clone the repository**
+# Run the scraper
+./tiktok-comment-scraper
+```
 
-   ```bash
-   git clone <repository-url>
-   cd TIKTOK
-   ```
+### Option 3: Cross-Platform Build
 
-2. **Install dependencies**
+```bash
+# Use the automated build script
+./build.sh
 
-   ```bash
-   go mod tidy
-   ```
-
-3. **Run the scraper**
-   ```bash
-   go run main.go
-   ```
+# This creates executables for all platforms in the builds/ directory
+```
 
 ## 📖 Usage
 
@@ -111,7 +130,7 @@ All executables have been scanned and verified as safe:
    📱 TikTok Comment Scraper (Free Limited Version)
    =================================================
    This tool extracts main comments from TikTok videos.
-   ⚠️  Limited to 500 main comments maximum per video
+   ✅ Unlimited main comments extraction - no limits!
 
    💎 Need unlimited comments with replies?
    📧 Email: haronkibetrutoh@gmail.com
@@ -131,7 +150,7 @@ All executables have been scanned and verified as safe:
    ⏱️ Extraction started at: 14:04:05
    ✅ Successfully extracted video ID: 1234567890123456789
    📥 Extracting main comments for video 1234567890123456789...
-   ⚠️  Comment limit: 500 comments maximum
+   ✅ Unlimited main comments extraction - no limits!
    📄 Fetching comments page with cursor 0...
    📡 Response Status: 200 OK
    📄 Response Body Length: 93572 bytes
@@ -142,7 +161,7 @@ All executables have been scanned and verified as safe:
    ✅ Retrieved 299 comments so far...
    ✅ Retrieved 399 comments so far...
    ✅ Retrieved 499 comments so far...
-   🛑 Reached comment limit of 500 comments. Stopping extraction.
+   ✅ All available main comments extracted successfully.
    📊 Total main comments retrieved: 500
    📊 Exporting comments to Excel...
    ✅ Exported 500 comments to Excel file: exports/tiktok_comments_20240802_140441.xlsx
@@ -216,6 +235,16 @@ The scraper uses pre-configured API credentials that are automatically rotated d
 
 ---
 
+## 🛠️ Technical Specifications
+
+- **Language**: Go 1.24.5
+- **Dependencies**:
+  - `github.com/xuri/excelize/v2` - Excel file generation
+- **Architecture**: Cross-platform (Windows, Linux, macOS)
+- **Build Size**: ~10MB (statically linked)
+- **Memory Usage**: Efficient for large datasets
+- **API**: TikTok Web API with token rotation
+
 ## 🔧 Technical Details
 
 ### Built With
@@ -250,18 +279,24 @@ The scraper uses pre-configured API credentials that are automatically rotated d
 
 ## 🎯 Performance
 
-- **Speed**: Extracts 500 comments in ~1 minute
+- **Speed**: Fast extraction with unlimited main comments
 - **Reliability**: 99%+ success rate with retry logic
 - **Memory**: Efficient processing with streaming
 - **Rate Limiting**: Intelligent delays prevent blocking
+- **Token Management**: Real-time TikTok token rotation for continuous operation
+- **Pagination**: Handles large comment threads with automatic pagination
 
 ---
 
-## 💎 **Need More? Get Premium!**
+## 💎 **Need Replies & Nested Comments?**
+
+This version extracts unlimited **main comments only**. For replies and nested comments, upgrade to premium:
+
+**📧 Email**: haronkibetrutoh@gmail.com  
+**📱 WhatsApp**: +254718448461
 
 ### 🚀 **Premium Features Available**
 
-- ✅ **Unlimited comments** (no 500 limit)
 - ✅ **Full reply extraction** (nested comments)
 - ✅ **Bulk processing** (multiple videos)
 - ✅ **Advanced filtering** (by date, language, etc.)
@@ -270,14 +305,8 @@ The scraper uses pre-configured API credentials that are automatically rotated d
 - ✅ **Priority support** (24/7 assistance)
 - ✅ **White-label solutions** (for businesses)
 
-### 📞 **Contact for Premium Version**
-
-**Email**: haronkibetrutoh@gmail.com  
-**WhatsApp**: +254718448461
-
 ### 🎯 **Why Upgrade?**
 
-- **500 comments not enough?** Get unlimited extraction
 - **Need replies?** Extract nested comment threads
 - **Multiple videos?** Bulk process entire channels
 - **Business use?** White-label solutions available
@@ -331,7 +360,7 @@ This tool is for educational and research purposes only. Users are responsible f
 
 ### ✅ **What You Get (Free)**
 
-- Extract up to 500 main comments per video
+- Extract unlimited main comments per video
 - Export to Excel with full metadata
 - Cross-platform executables (Windows/Mac/Linux)
 - Security verified with VirusTotal scans
@@ -339,7 +368,6 @@ This tool is for educational and research purposes only. Users are responsible f
 
 ### 💎 **What's Available (Premium)**
 
-- Unlimited comment extraction
 - Full reply and nested comment support
 - Bulk processing for multiple videos
 - Advanced filtering and monitoring

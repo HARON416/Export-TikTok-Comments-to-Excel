@@ -15,7 +15,7 @@ import (
 	"github.com/xuri/excelize/v2"
 )
 
-const mxc = 500
+// Removed comment limit - now extracts unlimited comments
 
 type CommentResponse struct {
 	StatusCode int    `json:"status_code"`
@@ -145,7 +145,7 @@ func main() {
 	fmt.Println("📱 TikTok Comment Scraper (Free Limited Version)")
 	fmt.Println("=================================================")
 	fmt.Println("This tool extracts main comments from TikTok videos.")
-	fmt.Printf("⚠️  Limited to %d main comments maximum per video\n", mxc)
+	fmt.Println("✅ Unlimited main comments extraction - no limits!")
 	fmt.Println()
 	fmt.Println("💎 Need unlimited comments with replies?")
 	fmt.Println("📧 Email: haronkibetrutoh@gmail.com")
@@ -185,7 +185,7 @@ func main() {
 	}
 
 	fmt.Printf("📥 Extracting main comments for video %s...\n", finalVideoID)
-	fmt.Printf("⚠️  Comment limit: %d comments maximum\n", mxc)
+	fmt.Println("✅ Unlimited comments extraction - no limits!")
 
 	allComments := fetchAllComments(finalVideoID, config)
 
@@ -234,11 +234,7 @@ func fetchAllComments(videoID string, config TikTokConfig) []TikTokComment {
 	fmt.Println("📥 Fetching comments...")
 
 	for {
-		if len(allComments) >= mxc {
-			fmt.Printf("🛑 Reached comment limit of %d comments. Stopping extraction.\n", mxc)
-			allComments = allComments[:mxc]
-			break
-		}
+		// Removed comment limit check - now extracts unlimited comments
 
 		fmt.Printf("📄 Fetching comments page with cursor %d...\n", cursor)
 		response := fetchComments(videoID, cursor, &config)
@@ -274,9 +270,7 @@ func fetchAllComments(videoID string, config TikTokConfig) []TikTokComment {
 			}
 			allComments = append(allComments, comment)
 
-			if len(allComments) >= mxc {
-				break
-			}
+			// Removed comment limit check - now extracts unlimited comments
 		}
 
 		if response.HasMore != 1 || len(response.Comments) == 0 {
