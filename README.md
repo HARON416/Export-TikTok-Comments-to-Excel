@@ -2,6 +2,8 @@
 
 > **Extract unlimited main comments from TikTok videos with ease** 🚀
 
+> **💡 Need Replies?**: For nested comment support, upgrade to premium version.
+
 [![Go Version](https://img.shields.io/badge/Go-1.21+-blue.svg)](https://golang.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)]()
